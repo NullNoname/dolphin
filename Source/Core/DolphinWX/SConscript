@@ -95,7 +95,7 @@ elif sys.platform == 'darwin':
 			lang = po[index_lo:index_hi]
 			lproj = os.sep + lang + '.lproj'
 			mo_dir = env['build_dir'] + '/Languages' + lproj
-			mo_file = mo_dir + '/dolphin-emu.mo'
+			mo_file = mo_dir + '/dolphin-emu-3.0.mo'
 			env.Command('#' + mo_file, po, 'mkdir -p ' + mo_dir +
 				' && ' + msgfmt + ' -o ' + mo_file + ' ' + po)
 			env.Install(env['data_dir'] + lproj, '#' + mo_file)
@@ -129,7 +129,7 @@ elif sys.platform == 'darwin':
 		"find $SOURCES -name .svn -exec rm -rf {} +")
 else:
 	files += ['Src/X11Utils.cpp']
-	exe = env['binary_dir'] + '/dolphin-emu'
+	exe = env['binary_dir'] + '/dolphin-emu-3.0'
 	if env['nowx']:
 		exe += '-nogui'
 	env.InstallAs(env['data_dir'] + '/sys', '#Data/Sys')

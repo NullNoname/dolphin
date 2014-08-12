@@ -145,9 +145,9 @@ protected:
 	NetWiimote		m_wiimote_input[4];
 
 	NetPlayUI*		m_dialog;
-	sf::SocketTCP	m_socket;
+	sf::TcpSocket	m_socket;
 	std::thread		m_thread;
-	sf::Selector<sf::SocketTCP>		m_selector;
+//	sf::Selector<sf::TcpSocket>		m_selector;
 
 	std::string		m_selected_game;
 	volatile bool	m_is_running;
@@ -193,19 +193,19 @@ private:
 	public:
 		Client() : ping(0), current_game(0) {}
 
-		sf::SocketTCP	socket;
+		sf::TcpSocket	socket;
 		u64				ping;	
 		u32				current_game;
 	};
 
 	void SendPadState(const PadMapping local_nb, const NetPad& np);
 	void SendToClients(sf::Packet& packet, const PlayerId skip_pid = 0);
-	unsigned int OnConnect(sf::SocketTCP& socket);
-	unsigned int OnDisconnect(sf::SocketTCP& socket);
-	unsigned int OnData(sf::Packet& packet, sf::SocketTCP& socket);
+	unsigned int OnConnect(sf::TcpSocket& socket);
+	unsigned int OnDisconnect(sf::TcpSocket& socket);
+	unsigned int OnData(sf::Packet& packet, sf::TcpSocket& socket);
 	void UpdatePadMapping();
 
-	std::map<sf::SocketTCP, Client>	m_players;
+	std::map<sf::TcpSocket, Client>	m_players;
 
 	Common::Timer	m_ping_timer;
 	u32		m_ping_key;

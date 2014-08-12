@@ -81,9 +81,9 @@ if(${CMAKE_SYSTEM_NAME} MATCHES "FreeBSD" OR
 endif()
 
 if(wxWidgets_FOUND)
-	set(DOLPHIN_EXE dolphin-emu)
+	set(DOLPHIN_EXE dolphin-emu-3.0)
 else()
-	set(DOLPHIN_EXE dolphin-emu-nogui)
+	set(DOLPHIN_EXE dolphin-emu-3.0-nogui)
 endif()
 
 add_executable(${DOLPHIN_EXE} ${SRCS})

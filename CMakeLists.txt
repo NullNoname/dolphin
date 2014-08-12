@@ -2,14 +2,14 @@
 # General setup
 #
 cmake_minimum_required(VERSION 2.6)
-project(dolphin-emu)
+project(dolphin-emu-3.0)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_SOURCE_DIR}/CMakeTests)
 set(DOLPHIN_IS_STABLE TRUE)
 
 # Set up paths
 set(bindir		${CMAKE_INSTALL_PREFIX}/bin					CACHE PATH "bindir")
-set(datadir		${CMAKE_INSTALL_PREFIX}/share/dolphin-emu	CACHE PATH "datadir")
-set(userdir ".dolphin-emu" CACHE STRING "User directory")
+set(datadir		${CMAKE_INSTALL_PREFIX}/share/dolphin-emu-3.0	CACHE PATH "datadir")
+set(userdir ".dolphin-emu-3.0" CACHE STRING "User directory")
 add_definitions(-DUSER_DIR="${userdir}")
 add_definitions(-DDATA_DIR="${datadir}/")
 
@@ -221,8 +221,9 @@ else()
 	add_definitions(-DHAVE_XRANDR=0)
 endif(XRANDR_FOUND)
 
-option(ENCODE_FRAMEDUMPS "Encode framedumps in AVI format" ON)
+option(ENCODE_FRAMEDUMPS "Encode framedumps in AVI format (broken in Ubuntu 14.04)" OFF)
 if(ENCODE_FRAMEDUMPS)
+	message("AVI framedump enabled, but beware this is broken in Ubuntu 14.04")
 	check_libav()
 endif()
 
@@ -420,14 +421,14 @@ install(DIRECTORY Data/Sys/ DESTINATION ${datadir}/sys PATTERN .svn EXCLUDE)
 include(FindGettext)
 if(GETTEXT_FOUND AND NOT DISABLE_WX)
 	file(GLOB LINGUAS RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} Languages/po/*.po) 
-	GETTEXT_CREATE_TRANSLATIONS(Languages/po/dolphin-emu.pot ALL ${LINGUAS})
+	GETTEXT_CREATE_TRANSLATIONS(Languages/po/dolphin-emu-3.0.pot ALL ${LINGUAS})
 endif()
 if(NOT ${CMAKE_SYSTEM_NAME} MATCHES "Linux")
 	install(FILES Data/license.txt DESTINATION ${datadir})
 endif()
 
 # packaging information
-set(CPACK_PACKAGE_NAME "dolphin-emu")
+set(CPACK_PACKAGE_NAME "dolphin-emu-3.0")
 set(CPACK_PACKAGE_VENDOR "Dolphin Team")
 set(CPACK_PACKAGE_VERSION_MAJOR "3")
 set(CPACK_PACKAGE_VERSION_MINOR "0")

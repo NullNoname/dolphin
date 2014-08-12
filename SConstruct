@@ -31,7 +31,7 @@ if env['PLATFORM'] == 'posix': vars.AddVariables(
     PathVariable('prefix', 'Installation prefix (only used for a global build)',
                  '/usr/local', PathVariable.PathAccept),
     PathVariable('userdir', 'Set the name of the user data directory in home',
-                 '.dolphin-emu', PathVariable.PathAccept),
+                 '.dolphin-emu-3.0', PathVariable.PathAccept),
     EnumVariable('pgo', 'Profile-Guided Optimization (generate or use)', 'none',
                  allowed_values = ('none', 'generate', 'use'), ignorecase = 2),
     BoolVariable('shared_glew', 'Use system shared libGLEW', True),
@@ -247,9 +247,9 @@ else:
     else:
         env['prefix'] = Dir(env['prefix']).abspath
         env['binary_dir'] = env['prefix'] + '/bin'
-        env['data_dir'] = env['prefix'] + "/share/dolphin-emu"
+        env['data_dir'] = env['prefix'] + "/share/dolphin-emu-3.0"
         conf.Define('DATA_DIR', "\"" + env['data_dir'] + "/\"")
-        conf.Define('LIBS_DIR', "\"" + env['prefix'] + '/lib/dolphin-emu/' + "\"")
+        conf.Define('LIBS_DIR', "\"" + env['prefix'] + '/lib/dolphin-emu-3.0/' + "\"")
         # Setup destdir for package building
         # Warning: The program will not run from this location.
         # It is assumed the package will later install it to the prefix.

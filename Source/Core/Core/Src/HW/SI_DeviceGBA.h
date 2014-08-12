@@ -24,7 +24,7 @@
 
 void GBAConnectionWaiter_Shutdown();
 
-class GBASockServer : public sf::SocketTCP
+class GBASockServer : public sf::TcpSocket
 {
 public:
 	GBASockServer();
@@ -41,7 +41,7 @@ private:
 		CMD_WRITE	= 0x15		
 	};
 
-	sf::SocketTCP client;
+	sf::TcpSocket client;
 	char current_data[5];
 };
 

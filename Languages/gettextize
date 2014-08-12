@@ -4,12 +4,12 @@ cd ${0/gettextize/}/..
 SRCDIR=Source
 CPP_FILE_LIST=$(find $SRCDIR \( -name '*.cpp' -o -name '*.h' -o -name '*.c' \) \
 	-a ! -path '*Debug*')
-xgettext -d dolphin-emu -s --keyword=_ --keyword=wxTRANSLATE --keyword=SuccessAlertT	\
+xgettext -d dolphin-emu-3.0 -s --keyword=_ --keyword=wxTRANSLATE --keyword=SuccessAlertT	\
 	--keyword=PanicAlertT --keyword=PanicYesNoT --keyword=AskYesNoT --keyword=_trans	\
-	--add-comments=i18n -p ./Languages/po -o dolphin-emu.pot $CPP_FILE_LIST				\
+	--add-comments=i18n -p ./Languages/po -o dolphin-emu-3.0.pot $CPP_FILE_LIST		\
 	--package-name="Dolphin Emu"
 
-POTFILE=./Languages/po/dolphin-emu.pot
+POTFILE=./Languages/po/dolphin-emu-3.0.pot
 PO_FILES=$(find ./Languages/po -name '*.po')
 for PO in $PO_FILES
 do

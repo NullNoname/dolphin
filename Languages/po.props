@@ -12,7 +12,7 @@
   <ItemDefinitionGroup>
     <msgfmt>
       <Verbose>False</Verbose>
-      <OutputName>$(OutDir)Languages\%(Filename)\dolphin-emu.mo</OutputName>
+      <OutputName>$(OutDir)Languages\%(Filename)\dolphin-emu-3.0.mo</OutputName>
       <CommandLineTemplate>..\Externals\gettext\msgfmt [AllOptions] [AdditionalOptions] [inputs]</CommandLineTemplate>
       <Outputs>%(OutputName)</Outputs>
       <ExecutionDescription>Compiling %(Filename) locale</ExecutionDescription>
