@@ -6,7 +6,6 @@ set(LIBS	core
 			common
 			audiocommon
 			z
-			sfml-network
 			SDL
 			GL
 			${XRANDR_LIBRARIES}

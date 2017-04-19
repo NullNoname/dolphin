@@ -18,7 +18,7 @@
 #include "SI_Device.h"
 #include "SI_DeviceGBA.h"
 
-#include "SFML/Network.hpp"
+//#include "SFML/Network.hpp"
 #include "Thread.h"
 #include <queue>
 
@@ -34,7 +34,7 @@ void GBAConnectionWaiter_Shutdown()
 {
 }
 
-bool GetAvailableSock(sf::TcpSocket& sock_to_fill)
+bool GetAvailableSock(int& sock_to_fill)
 {
 	return false;
 }

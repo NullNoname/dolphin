@@ -34,7 +34,7 @@ void GeckoSockServer::GeckoConnectionWaiter()
 {
 }
 
-bool GeckoSockServer::GetAvailableSock(sf::TcpSocket &sock_to_fill)
+bool GeckoSockServer::GetAvailableSock(int &sock_to_fill)
 {
 	return false;
 }

@@ -6,7 +6,7 @@
 #include "Thread.h"
 #include "Timer.h"
 
-#include <SFML/Network.hpp>
+//#include <SFML/Network.hpp>
 
 #include "GCPadStatus.h"
 
@@ -145,7 +145,7 @@ protected:
 	NetWiimote		m_wiimote_input[4];
 
 	NetPlayUI*		m_dialog;
-	sf::TcpSocket	m_socket;
+//	sf::TcpSocket	m_socket;
 	std::thread		m_thread;
 //	sf::Selector<sf::TcpSocket>		m_selector;
 
@@ -193,19 +193,19 @@ private:
 	public:
 		Client() : ping(0), current_game(0) {}
 
-		sf::TcpSocket	socket;
+//		sf::TcpSocket	socket;
 		u64				ping;	
 		u32				current_game;
 	};
 
 	void SendPadState(const PadMapping local_nb, const NetPad& np);
-	void SendToClients(sf::Packet& packet, const PlayerId skip_pid = 0);
-	unsigned int OnConnect(sf::TcpSocket& socket);
-	unsigned int OnDisconnect(sf::TcpSocket& socket);
-	unsigned int OnData(sf::Packet& packet, sf::TcpSocket& socket);
+	void SendToClients(int& packet, const PlayerId skip_pid = 0);
+	unsigned int OnConnect(int& socket);
+	unsigned int OnDisconnect(int& socket);
+	unsigned int OnData(int& packet, int& socket);
 	void UpdatePadMapping();
 
-	std::map<sf::TcpSocket, Client>	m_players;
+//	std::map<sf::TcpSocket, Client>	m_players;
 
 	Common::Timer	m_ping_timer;
 	u32		m_ping_key;
@@ -230,7 +230,7 @@ public:
 
 private:
 	void SendPadState(const PadMapping local_nb, const NetPad& np);
-	unsigned int OnData(sf::Packet& packet);
+	unsigned int OnData(int& packet);
 
 	PlayerId		m_pid;
 	std::map<PlayerId, Player>	m_players;

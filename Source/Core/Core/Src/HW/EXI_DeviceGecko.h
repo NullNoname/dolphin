@@ -18,20 +18,20 @@
 #ifndef _EXIDEVICE_GECKO_H
 #define _EXIDEVICE_GECKO_H
 
-#include "SFML/Network.hpp"
+//#include "SFML/Network.hpp"
 #include "Thread.h"
 #include <queue>
 
 class GeckoSockServer
-	: public sf::TcpSocket
+//	: public sf::TcpSocket
 {
 public:
 	GeckoSockServer();
 	~GeckoSockServer();
-	bool GetAvailableSock(sf::TcpSocket &sock_to_fill);
+	bool GetAvailableSock(int &sock_to_fill);
 
 	// Client for this server object
-	sf::TcpSocket client;
+//	sf::TcpSocket client;
 	void ClientThread();
 	std::thread clientThread;
 	std::mutex transfer_lock;
@@ -49,7 +49,7 @@ private:
 	static u16							server_port;
 	static volatile bool				server_running;
 	static std::thread					connectionThread;
-	static std::queue<sf::TcpSocket>	waiting_socks;
+//	static std::queue<sf::TcpSocket>	waiting_socks;
 	static std::mutex					connection_lock;
 };
 

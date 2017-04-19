@@ -1,7 +1,7 @@
 
 #include "GeckoCodeDiag.h"
 
-#include <SFML/Network/Http.hpp>
+//#include <SFML/Network/Http.hpp>
 
 #include <sstream>
 

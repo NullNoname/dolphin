@@ -18,14 +18,14 @@ void NetPlayServer::ThreadFunc()
 }
 
 // called from ---NETPLAY--- thread
-unsigned int NetPlayServer::OnConnect(sf::TcpSocket& socket)
+unsigned int NetPlayServer::OnConnect(int& socket)
 {
 
 	return 0;
 }
 
 // called from ---NETPLAY--- thread
-unsigned int NetPlayServer::OnDisconnect(sf::TcpSocket& socket)
+unsigned int NetPlayServer::OnDisconnect(int& socket)
 {
 	return 0;
 }
@@ -59,7 +59,7 @@ void NetPlayServer::AdjustPadBufferSize(unsigned int size)
 }
 
 // called from ---NETPLAY--- thread
-unsigned int NetPlayServer::OnData(sf::Packet& packet, sf::TcpSocket& socket)
+unsigned int NetPlayServer::OnData(int& packet, int& socket)
 {
 	return 0;
 }
@@ -99,6 +99,6 @@ bool NetPlayServer::StopGame()
 }
 
 // called from multiple threads
-void NetPlayServer::SendToClients(sf::Packet& packet, const PlayerId skip_pid)
+void NetPlayServer::SendToClients(int& packet, const PlayerId skip_pid)
 {
 }

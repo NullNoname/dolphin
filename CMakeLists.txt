@@ -202,7 +202,9 @@ endif(OPENAL_FOUND)
 
 # Note: We do not need to explicitly check for X11 as it is done in the cmake
 # FindOpenGL module on linux.
+# Ubuntu 16.04: The above comment is not true anymore!
 if(UNIX AND NOT APPLE)
+	find_package(X11) # Ubuntu 16.04: FindOpenGL no longer automatically checks for it
 	if(X11_FOUND)
 		add_definitions(-DHAVE_X11=1)
 		include_directories(${X11_INCLUDE_DIR})
@@ -304,14 +306,15 @@ else(SDL_FOUND)
 	add_subdirectory(Externals/SDL)
 endif(SDL_FOUND)
 
-check_lib(SFML sfml-network SFML/Network/Ftp.hpp QUIET)
-if(SFML_FOUND)
-	message("Using shared sfml-network")
-else()
-	message("Shared sfml-network not found, falling back to the static library")
-	add_subdirectory(Externals/SFML)
-	include_directories(Externals/SFML/include)
-endif()
+# Ubuntu 14.04+: SFML had API breakages so we can't use it
+#check_lib(SFML sfml-network SFML/Network/Ftp.hpp QUIET)
+#if(SFML_FOUND)
+#	message("Using shared sfml-network")
+#else()
+#	message("Shared sfml-network not found, falling back to the static library")
+#	add_subdirectory(Externals/SFML)
+#	include_directories(Externals/SFML/include)
+#endif()
 
 check_lib(SOIL SOIL SOIL/SOIL.h QUIET)
 if(SOIL_FOUND)
