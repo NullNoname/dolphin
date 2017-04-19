@@ -9,10 +9,13 @@ The following features, which depends on SFML-Network, had to be removed because
 * USBGecko Device
 * Cheat Downloader
 
+In addition, to prevent this version from conflicting with the official versions of Dolphin, executable filename and related directory names are renamed to "dolphin-emu-3.0" instead of "dolphin-emu". User settings are stored in "~/.dolphin-emu-3.0/".
+
 [Build Instructions]
 * Step 1: Install Required Packages and get the source
 $ sudo apt-get install git build-essential cmake libao-dev libasound2-dev libbluetooth-dev libglew-dev libgtk2.0-dev liblzo2-dev libopenal-dev libpulse-dev libreadline-dev libsdl1.2-dev libsoil-dev libxext-dev libxrandr-dev lsb-release pkg-config zlib1g-dev nvidia-cg-dev
-$ git clone 
+$ git clone https://github.com/NullNoname/dolphin.git
+$ cd dolphin
 
 * Step 2: Add WebUpd8 PPA (Required only for Ubuntu 16.04, please skip to Step 3 in Ubuntu 14.04)
 Dolphin-emu 3.0 requires wxWidgets 2.8. It was available in the main repository in Ubuntu 14.04, but in 16.04 it was removed.
@@ -30,3 +33,7 @@ $ cd Build
 $ cmake ../
 $ make
 $ sudo make install
+
+* Optional: Create a Launcher Icon
+$ sudo cp ./dolphin-emu-3.0.desktop /usr/share/applications/dolphin-emu-3.0.desktop
+$ sudo cp ./Source/Core/DolphinWX/resources/Dolphin.xpm /usr/share/pixmaps/dolphin-emu-3.0.xpm

@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Dolphin-emu-3.0
+Comment=A Wii/GameCube Emulator
+Icon=dolphin-emu-3.0
+Exec=dolphin-emu-3.0
+Categories=Game;
