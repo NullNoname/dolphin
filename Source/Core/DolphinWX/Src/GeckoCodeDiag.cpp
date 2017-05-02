@@ -2,6 +2,7 @@
 #include "GeckoCodeDiag.h"
 
 //#include <SFML/Network/Http.hpp>
+#include "WxUtils.h"	// For code downloader web browser launch
 
 #include <sstream>
 
@@ -133,7 +134,19 @@ void CodeConfigPanel::UpdateInfoBox(wxCommandEvent&)
 
 void CodeConfigPanel::DownloadCodes(wxCommandEvent&)
 {
-	PanicAlertT("This feature is unavailable in this build.");
+//	PanicAlertT("This feature is unavailable in this build.");
+	if (m_gameid.empty())
+		return;
+
+	std::string gameid = m_gameid;
+
+	// WiiWare are identified by their first four characters
+	if (m_gameid[0] == 'W')
+		gameid = m_gameid.substr(0, 4);
+
+	std::string url = "http://geckocodes.org/index.php?c=";
+	url += gameid;
+	WxUtils::Launch(url.c_str());
 }
 
 }

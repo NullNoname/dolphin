@@ -203,6 +203,7 @@ void CFrame::CreateMenu()
 	toolsMenu->Append(IDM_CHEATS, _("&Cheats Manager"));
 
 	toolsMenu->Append(IDM_NETPLAY, _("Start &NetPlay"));
+	toolsMenu->Enable(IDM_NETPLAY, false);	// Nope. Sorry.
 
 	toolsMenu->Append(IDM_MENU_INSTALLWAD, _("Install WAD"));
 	UpdateWiiMenuChoice(toolsMenu->Append(IDM_LOAD_WII_MENU, wxT("Dummy string to keep wxw happy")));
@@ -301,7 +302,8 @@ void CFrame::CreateMenu()
 	// Re-enable when there's something useful to display */
 	// helpMenu->Append(wxID_HELP, _("&Help"));
 	helpMenu->Append(IDM_HELPWEBSITE, _("Dolphin &Web Site"));
-	helpMenu->Append(IDM_HELPGOOGLECODE, _("Dolphin at &Google Code"));
+//	helpMenu->Append(IDM_HELPGOOGLECODE, _("Dolphin at &Google Code"));
+	helpMenu->Append(IDM_HELPGOOGLECODE, _("Dolphin-emu 3.0 &GitHub Repository"));
 	helpMenu->AppendSeparator();
 	helpMenu->Append(wxID_ABOUT, _("&About..."));
 	m_MenuBar->Append(helpMenu, _("&Help"));
@@ -1242,7 +1244,8 @@ void CFrame::OnHelp(wxCommandEvent& event)
 		WxUtils::Launch("http://www.dolphin-emulator.com/");
 		break;
 	case IDM_HELPGOOGLECODE:
-		WxUtils::Launch("http://code.google.com/p/dolphin-emu/");
+//		WxUtils::Launch("http://code.google.com/p/dolphin-emu/");
+		WxUtils::Launch("https://github.com/NullNoname/dolphin");
 		break;
 	}
 }

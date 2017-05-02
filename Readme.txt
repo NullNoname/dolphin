@@ -9,7 +9,9 @@ The following features, which depends on SFML-Network, had to be removed because
 * GBA Device
 * USBGecko Device
 * Cheat Downloader
-Menu entries for these features remain, but selecting them will do nothing.
+The Cheat Downloader, which automatically downloaded cheat codes from geckocodes.org, is instead modified to launch the system's default Web Browser.
+Menu entry for NetPlay is disabled.
+Menu entries for GBA and USBGecko features remain, but selecting them will do nothing.
 
 In addition, to prevent this version from conflicting with the official versions of Dolphin, executable filename and related directory names are renamed to "dolphin-emu-3.0" instead of "dolphin-emu". User settings are stored in "~/.dolphin-emu-3.0/".
 
