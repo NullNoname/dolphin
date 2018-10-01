@@ -1,6 +1,7 @@
 Dolphin-emu 3.0 - The Gamecube / Wii Emulator
 ==========================================
 This project is a modified version of Dolphin 3.0 that is buildable in Ubuntu 14.04 and 16.04, just for historical interest.
+AppImage build script is also available, which will produce an AppImage that can be run in 18.04.
 Please DO NOT report any bugs caused from this build to the Dolphin team!
 
 [Changes from original source]
@@ -46,6 +47,12 @@ $ sudo make install
 $ cd ../
 $ sudo cp ./dolphin-emu-3.0.desktop /usr/share/applications/dolphin-emu-3.0.desktop
 $ sudo cp ./Source/Core/DolphinWX/resources/Dolphin.xpm /usr/share/pixmaps/dolphin-emu-3.0.xpm
+
+[AppImage Build]
+In Ubuntu 16.04 (either running on a real PC or a VM) do Steps 1, 2, and 3 in the above instructions.
+Then run build_appimage.sh.
+All dependencies are included in the produced AppImage except for the officially blacklisted system libraries (https://raw.githubusercontent.com/AppImage/AppImages/master/excludelist) and PulseAudio.
+These libraries will fallback to the system-installed ones.
 
 [License]
 GNU General Public License, Version 2 (see license.txt for more info)
